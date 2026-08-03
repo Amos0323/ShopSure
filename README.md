@@ -1,13 +1,72 @@
 # ShopSure
 
-ShopSure is a lightweight QA automation portfolio project using Playwright with TypeScript. Phase 2 extends the original login and cart coverage against the public Sauce Demo shopping site.
+ShopSure is a compact Playwright TypeScript QA automation portfolio project for the public Sauce Demo shopping site. It shows how to structure reliable UI automation with page objects, reusable fixtures and clear test data.
 
-## Demo Site
+## QA Problem
 
-- URL: https://www.saucedemo.com
-- Why: it is a stable public demonstration site built for login, inventory and shopping cart automation practice.
+The project validates common e-commerce risks: login access, cart accuracy, checkout validation and product detail consistency. It keeps the framework small enough to review quickly while still showing professional QA habits.
 
-## Installation
+## Skills Demonstrated
+
+- Playwright UI automation with TypeScript
+- Page Object Model design
+- Reusable fixtures and test data
+- Clear assertions and readable test scenarios
+- GitHub Actions test execution
+- QA documentation and traceability
+
+## Technology Stack
+
+- TypeScript
+- Playwright Test
+- Chromium
+- Node.js and npm
+- GitHub Actions
+
+## Project Structure
+
+```text
+ShopSure/
+  .github/workflows/playwright.yml
+  docs/
+    test-strategy.md
+    test-cases.md
+    requirements-traceability.md
+  fixtures/
+    users.ts
+  pages/
+    CartPage.ts
+    CheckoutPage.ts
+    InventoryPage.ts
+    LoginPage.ts
+  test-data/
+    customers.ts
+    products.ts
+  tests/
+    api/
+      products-api.spec.ts
+    cart.spec.ts
+    login.spec.ts
+```
+
+## UI Test Coverage
+
+- Successful login
+- Unsuccessful login
+- Add one product to the shopping cart
+- Remove a product from the cart
+- Add two products and verify both appear in the cart
+- Complete checkout with fictional customer information
+- Validate required checkout fields with missing customer information
+- Verify product name and price consistency between inventory and cart
+
+## API Test Coverage
+
+- GET `/products` returns status 200 and a non-empty products array
+- GET `/products/1` returns status 200, product ID 1 and required product fields
+- GET `/products/999999` returns status 404
+
+## Local Setup
 
 ```bash
 npm install
@@ -18,63 +77,39 @@ npx playwright install chromium
 
 ```bash
 npm test
-npm run test:headed
+npm run test:ui
+npm run test:api
+npm run typecheck
+```
+
+Open the latest HTML report:
+
+```bash
 npm run report
 ```
 
-## Project Structure
+## GitHub Actions
 
-```text
-ShopSure/
-  fixtures/
-    users.ts
-  pages/
-    CartPage.ts
-    InventoryPage.ts
-    LoginPage.ts
-  test-data/
-    customers.ts
-    products.ts
-  tests/
-    cart.spec.ts
-    login.spec.ts
-  playwright.config.ts
-  tsconfig.json
-  package.json
-```
+The workflow in `.github/workflows/playwright.yml` runs on pushes and pull requests. It installs dependencies with `npm ci`, installs Chromium with Playwright system dependencies, runs all Playwright tests and uploads the HTML report only when tests fail.
 
-## What To Learn From Each File
+## Documentation
 
-- `package.json`: defines the project scripts and keeps dependencies limited to Playwright and TypeScript.
-- `playwright.config.ts`: configures Chromium only, the Sauce Demo base URL, HTML reporting and screenshots after failed tests.
-- `tsconfig.json`: gives TypeScript strict checking for the test, page object and data files.
-- `fixtures/users.ts`: stores reusable user credentials separately from test logic.
-- `test-data/customers.ts`: stores reusable fictional checkout customer details separately from test logic.
-- `test-data/products.ts`: stores reusable product names and prices separately from test logic.
-- `pages/LoginPage.ts`: models login page actions and assertions in one reusable class.
-- `pages/InventoryPage.ts`: models the product inventory page and cart entry point.
-- `pages/CartPage.ts`: models cart assertions after products are added.
-- `tests/login.spec.ts`: contains the successful and unsuccessful login scenarios.
-- `tests/cart.spec.ts`: contains the shopping cart scenario using the page objects and test data.
+- [Test strategy](docs/test-strategy.md)
+- [Test cases](docs/test-cases.md)
+- [Requirements traceability](docs/requirements-traceability.md)
 
-## Test Coverage
+## Limitations
 
-Included:
+- Tests depend on `https://www.saucedemo.com` being online and stable.
+- API tests depend on `https://dummyjson.com` being online and stable.
+- Chromium is the only configured browser.
+- Mobile-app, performance, security and database testing are out of scope.
 
-- Successful login
-- Unsuccessful login
-- Add one product to the shopping cart
-- Remove a product from the cart
-- Add two products and verify both appear in the cart
-- Complete a successful checkout using fictional customer information
-- Validate required checkout fields when customer information is missing
-- Verify product name and price remain consistent between the product page and cart
+## Future Improvements
 
-Not included yet:
+- Add tagged smoke/regression suites.
+- Add cross-browser testing when the portfolio scope expands.
 
-- API testing
-- CI/CD
-- Docker
-- AI features
-- Databases
-- Additional tests
+## Portfolio Disclaimer
+
+ShopSure is a learning and portfolio project. It is not affiliated with Sauce Labs or the Sauce Demo website.

@@ -1,0 +1,15 @@
+# ShopSure Test Cases
+
+| Test-case ID | Scenario | Preconditions | Test steps | Expected result | Status | Corresponding Playwright test |
+| --- | --- | --- | --- | --- | --- | --- |
+| TC-UI-001 | Successful login | Standard user exists | Open login page, enter valid username and password, submit | Inventory page loads and shows Products | Automated | `tests/login.spec.ts` - `successful login` |
+| TC-UI-002 | Unsuccessful login | Invalid credentials are available | Open login page, enter invalid username and password, submit | Login error says username and password do not match | Automated | `tests/login.spec.ts` - `unsuccessful login` |
+| TC-UI-003 | Add one product to cart | User is logged in | Add backpack to cart, verify badge, open cart | Cart shows the backpack | Automated | `tests/cart.spec.ts` - `add one product to the shopping cart` |
+| TC-UI-004 | Remove product from cart | User is logged in and backpack is in cart | Open cart and remove backpack | Backpack is no longer listed and cart badge is gone | Automated | `tests/cart.spec.ts` - `remove a product from the cart` |
+| TC-UI-005 | Add two products to cart | User is logged in | Add backpack and bike light, open cart | Both selected products appear in cart | Automated | `tests/cart.spec.ts` - `add two products and verify both appear in the cart` |
+| TC-UI-006 | Successful checkout | User is logged in and backpack is in cart | Start checkout, enter fictional customer details, continue, finish | Checkout completes with thank-you message | Automated | `tests/cart.spec.ts` - `complete a successful checkout using fictional customer information` |
+| TC-UI-007 | Required checkout fields | User is logged in and backpack is in cart | Start checkout and continue with blank customer fields | First Name required error is shown | Automated | `tests/cart.spec.ts` - `validate required checkout fields using missing customer information` |
+| TC-UI-008 | Product name and price consistency | User is logged in | Verify backpack price on inventory page, add to cart, verify name and price in cart | Product name and price match between inventory and cart | Automated | `tests/cart.spec.ts` - `verify product name and price remain consistent between the product page and cart` |
+| TC-API-001 | Products list endpoint | DummyJSON API is reachable | Send GET request to `/products` | Response status is 200 and products array is not empty | Automated | `tests/api/products-api.spec.ts` - `GET /products returns status 200 and a non-empty products array` |
+| TC-API-002 | Single product endpoint | DummyJSON API is reachable | Send GET request to `/products/1` | Response status is 200, product ID is 1 and required product fields are present | Automated | `tests/api/products-api.spec.ts` - `GET /products/1 returns status 200, product ID 1 and required product fields` |
+| TC-API-003 | Missing product endpoint | DummyJSON API is reachable | Send GET request to `/products/999999` | Response status is 404 | Automated | `tests/api/products-api.spec.ts` - `GET /products/999999 returns status 404` |
