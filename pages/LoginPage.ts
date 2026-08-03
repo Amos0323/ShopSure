@@ -19,6 +19,22 @@ export class LoginPage {
     await this.page.goto('/');
   }
 
+  async getPublicDemoPassword() {
+    const pageText = await this.page.locator('body').innerText();
+    const password = pageText
+      .split('Password for all users:')
+      .at(1)
+      ?.split(/\s+/)
+      .map((line) => line.trim())
+      .find(Boolean);
+
+    if (!password) {
+      throw new Error('Could not read the public Sauce Demo password from the login page.');
+    }
+
+    return password;
+  }
+
   async login(username: string, password: string) {
     await this.usernameInput.fill(username);
     await this.passwordInput.fill(password);

@@ -8,7 +8,7 @@ test('successful login', async ({ page }) => {
   const inventoryPage = new InventoryPage(page);
 
   await loginPage.goto();
-  await loginPage.login(users.standard.username, users.standard.password);
+  await loginPage.login(users.standard.username, await loginPage.getPublicDemoPassword());
 
   await inventoryPage.expectLoaded();
 });
