@@ -19,14 +19,20 @@ export class InventoryPage {
   }
 
   async addProductToCart(productName: string) {
-    const product = this.page
-      .locator('[data-test="inventory-item"]')
-      .filter({ hasText: productName });
+    await this.productByName(productName).getByRole('button', { name: 'Add to cart' }).click();
+  }
 
-    await product.getByRole('button', { name: 'Add to cart' }).click();
+  async expectProductPrice(productName: string, price: string) {
+    await expect(this.productByName(productName).locator('[data-test="inventory-item-price"]')).toHaveText(price);
   }
 
   async openCart() {
     await this.cartLink.click();
+  }
+
+  private productByName(productName: string) {
+    return this.page
+      .locator('[data-test="inventory-item"]')
+      .filter({ hasText: productName });
   }
 }
