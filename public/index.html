@@ -5,126 +5,161 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="ShopSure is Sello Mabua's Playwright and TypeScript QA automation portfolio project."
+      content="ShopSure is Sello Mabua's professional Playwright and TypeScript QA automation test framework."
     />
-    <title>ShopSure | QA Automation Portfolio</title>
+    <title>ShopSure | Automated QA Test Framework</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="ShopSure home">
-        <span class="brand-mark">S</span>
-        <span>ShopSure</span>
+        <span class="brand-mark">SS</span>
+        <span>
+          <strong>ShopSure</strong>
+          <small>QA Automation</small>
+        </span>
       </a>
       <nav aria-label="Primary navigation">
         <a href="#coverage">Coverage</a>
         <a href="#architecture">Architecture</a>
-        <a href="#run">Run</a>
+        <a href="#run">Run Tests</a>
       </nav>
+      <a class="header-action" href="https://github.com/Amos0323/ShopSure">GitHub</a>
     </header>
 
     <main id="top">
       <section class="hero">
         <div class="hero-copy">
-          <p class="small-label">Playwright + TypeScript QA Framework</p>
-          <h1>Reliable UI and API regression checks for e-commerce workflows.</h1>
+          <h1>Automated UI and API testing for critical e-commerce flows.</h1>
           <p>
-            ShopSure validates login, cart, checkout, and product API behaviour
-            using maintainable page objects, reusable test data, and CI-ready
-            automation.
+            ShopSure is a Playwright and TypeScript test framework that validates
+            login, cart, checkout, and product API behaviour with maintainable
+            page objects, reusable data, and CI-ready reporting.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="https://github.com/Amos0323/ShopSure">View GitHub</a>
-            <a class="button secondary" href="#run">Run locally</a>
+            <a class="button primary" href="#run">Run the suite</a>
+            <a class="button secondary" href="https://github.com/Amos0323/ShopSure">Review source</a>
           </div>
         </div>
 
-        <section class="terminal-card" aria-label="Latest verification">
-          <div class="terminal-bar">
-            <span></span>
-            <span></span>
-            <span></span>
+        <section class="runner-panel" aria-label="Latest test execution summary">
+          <div class="panel-top">
+            <span class="status-dot"></span>
+            <span>Latest verification</span>
+            <strong>Passed</strong>
           </div>
-          <pre><code>npm run typecheck
-tsc --noEmit
-passed
-
-npm test
-11 passed
-
-npm audit
-0 vulnerabilities</code></pre>
+          <div class="runner-command">
+            <span>$ npm test</span>
+            <strong>11 passed</strong>
+          </div>
+          <div class="result-list">
+            <article>
+              <span>UI workflows</span>
+              <strong>8 checks</strong>
+            </article>
+            <article>
+              <span>REST API</span>
+              <strong>3 checks</strong>
+            </article>
+            <article>
+              <span>TypeScript</span>
+              <strong>Clean</strong>
+            </article>
+            <article>
+              <span>Audit</span>
+              <strong>0 findings</strong>
+            </article>
+          </div>
         </section>
       </section>
 
-      <section class="metrics" aria-label="Project metrics">
+      <section class="proof-strip" aria-label="Project proof points">
         <article>
-          <strong>8</strong>
-          <span>UI workflow tests</span>
+          <span>Framework</span>
+          <strong>Playwright</strong>
         </article>
         <article>
-          <strong>3</strong>
-          <span>REST API tests</span>
+          <span>Language</span>
+          <strong>TypeScript</strong>
         </article>
         <article>
-          <strong>11</strong>
-          <span>passing checks</span>
+          <span>Pattern</span>
+          <strong>Page Object Model</strong>
         </article>
         <article>
-          <strong>0</strong>
-          <span>audit vulnerabilities</span>
+          <span>Delivery</span>
+          <strong>GitHub Actions</strong>
         </article>
       </section>
 
       <section id="coverage" class="section">
-        <div>
-          <p class="small-label">Coverage</p>
-          <h2>Focused tests for the flows that usually break first.</h2>
+        <div class="section-heading">
+          <span>Coverage</span>
+          <h2>Focused checks for the behaviours a QA analyst must protect.</h2>
         </div>
-        <div class="grid">
+        <div class="coverage-grid">
           <article>
-            <h3>Login</h3>
-            <p>Successful and unsuccessful sign-in behaviour against Sauce Demo.</p>
+            <span class="card-index">01</span>
+            <h3>Login access</h3>
+            <p>Valid and invalid login checks against Sauce Demo.</p>
           </article>
           <article>
-            <h3>Cart</h3>
-            <p>Add, remove, multi-product, and product consistency validation.</p>
+            <span class="card-index">02</span>
+            <h3>Cart accuracy</h3>
+            <p>Add, remove, multi-product, and product consistency tests.</p>
           </article>
           <article>
-            <h3>Checkout</h3>
-            <p>Complete checkout and required-field validation using fictional customer data.</p>
+            <span class="card-index">03</span>
+            <h3>Checkout validation</h3>
+            <p>Successful checkout plus required-field validation.</p>
           </article>
           <article>
-            <h3>API</h3>
-            <p>DummyJSON product list, product detail, and not-found response checks.</p>
+            <span class="card-index">04</span>
+            <h3>API contract</h3>
+            <p>Product list, product detail, and 404 response checks.</p>
           </article>
         </div>
       </section>
 
-      <section id="architecture" class="section split">
-        <div>
-          <p class="small-label">Architecture</p>
-          <h2>Readable tests with reusable support layers.</h2>
-          <p>
-            The framework keeps test intent separate from browser mechanics.
-            Page classes own locators and actions, while specs stay close to the
-            business scenario being verified.
-          </p>
+      <section id="architecture" class="section architecture">
+        <div class="section-heading">
+          <span>Architecture</span>
+          <h2>Built so tests read like business workflows.</h2>
         </div>
-        <ul class="feature-list">
-          <li>Page Object Model in <code>pages/</code></li>
-          <li>Reusable users in <code>fixtures/</code></li>
-          <li>Product and checkout data in <code>test-data/</code></li>
-          <li>Grouped UI and API specs in <code>tests/</code></li>
-          <li>HTML reporting and failure screenshots</li>
-          <li>GitHub Actions workflow for CI execution</li>
-        </ul>
+        <div class="architecture-grid">
+          <article class="code-map">
+            <div class="file-row">
+              <span>pages/</span>
+              <strong>LoginPage, InventoryPage, CartPage, CheckoutPage</strong>
+            </div>
+            <div class="file-row">
+              <span>fixtures/</span>
+              <strong>Reusable public demo users</strong>
+            </div>
+            <div class="file-row">
+              <span>test-data/</span>
+              <strong>Products and fictional checkout data</strong>
+            </div>
+            <div class="file-row">
+              <span>tests/</span>
+              <strong>UI and API regression specs</strong>
+            </div>
+          </article>
+          <article class="qa-note">
+            <h3>Why this matters</h3>
+            <p>
+              Locators and browser actions live in page classes, while specs
+              stay readable and focused on behaviour. That makes the framework
+              easier to extend, debug, and explain in a technical interview.
+            </p>
+          </article>
+        </div>
       </section>
 
-      <section id="run" class="section run-panel">
-        <div>
-          <p class="small-label">Run It</p>
-          <h2>Clone, install, and execute the suite.</h2>
+      <section id="run" class="section run-section">
+        <div class="section-heading">
+          <span>Run Tests</span>
+          <h2>Execute the suite locally.</h2>
         </div>
         <pre><code>git clone https://github.com/Amos0323/ShopSure.git
 cd ShopSure
@@ -138,7 +173,7 @@ npm run report</code></pre>
 
     <footer>
       <span>Built by Sello Mabua</span>
-      <a href="https://sello-mabua-portfolio.vercel.app/">Portfolio</a>
+      <a href="https://sello-mabua-portfolio.vercel.app/">Back to portfolio</a>
     </footer>
   </body>
 </html>
