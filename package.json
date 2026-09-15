@@ -8,6 +8,7 @@
     "test:ui": "playwright test tests/login.spec.ts tests/cart.spec.ts",
     "test:api": "playwright test tests/api",
     "typecheck": "tsc --noEmit",
+    "build": "npm run typecheck",
     "test:headed": "playwright test --headed",
     "report": "playwright show-report"
   },

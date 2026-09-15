@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="ShopSure is Sello Mabua's Playwright and TypeScript QA automation portfolio project."
+    />
+    <title>ShopSure | QA Automation Portfolio</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="ShopSure home">
+        <span class="brand-mark">S</span>
+        <span>ShopSure</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#coverage">Coverage</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#run">Run</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="small-label">Playwright + TypeScript QA Framework</p>
+          <h1>Reliable UI and API regression checks for e-commerce workflows.</h1>
+          <p>
+            ShopSure validates login, cart, checkout, and product API behaviour
+            using maintainable page objects, reusable test data, and CI-ready
+            automation.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="https://github.com/Amos0323/ShopSure">View GitHub</a>
+            <a class="button secondary" href="#run">Run locally</a>
+          </div>
+        </div>
+
+        <section class="terminal-card" aria-label="Latest verification">
+          <div class="terminal-bar">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <pre><code>npm run typecheck
+tsc --noEmit
+passed
+
+npm test
+11 passed
+
+npm audit
+0 vulnerabilities</code></pre>
+        </section>
+      </section>
+
+      <section class="metrics" aria-label="Project metrics">
+        <article>
+          <strong>8</strong>
+          <span>UI workflow tests</span>
+        </article>
+        <article>
+          <strong>3</strong>
+          <span>REST API tests</span>
+        </article>
+        <article>
+          <strong>11</strong>
+          <span>passing checks</span>
+        </article>
+        <article>
+          <strong>0</strong>
+          <span>audit vulnerabilities</span>
+        </article>
+      </section>
+
+      <section id="coverage" class="section">
+        <div>
+          <p class="small-label">Coverage</p>
+          <h2>Focused tests for the flows that usually break first.</h2>
+        </div>
+        <div class="grid">
+          <article>
+            <h3>Login</h3>
+            <p>Successful and unsuccessful sign-in behaviour against Sauce Demo.</p>
+          </article>
+          <article>
+            <h3>Cart</h3>
+            <p>Add, remove, multi-product, and product consistency validation.</p>
+          </article>
+          <article>
+            <h3>Checkout</h3>
+            <p>Complete checkout and required-field validation using fictional customer data.</p>
+          </article>
+          <article>
+            <h3>API</h3>
+            <p>DummyJSON product list, product detail, and not-found response checks.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="architecture" class="section split">
+        <div>
+          <p class="small-label">Architecture</p>
+          <h2>Readable tests with reusable support layers.</h2>
+          <p>
+            The framework keeps test intent separate from browser mechanics.
+            Page classes own locators and actions, while specs stay close to the
+            business scenario being verified.
+          </p>
+        </div>
+        <ul class="feature-list">
+          <li>Page Object Model in <code>pages/</code></li>
+          <li>Reusable users in <code>fixtures/</code></li>
+          <li>Product and checkout data in <code>test-data/</code></li>
+          <li>Grouped UI and API specs in <code>tests/</code></li>
+          <li>HTML reporting and failure screenshots</li>
+          <li>GitHub Actions workflow for CI execution</li>
+        </ul>
+      </section>
+
+      <section id="run" class="section run-panel">
+        <div>
+          <p class="small-label">Run It</p>
+          <h2>Clone, install, and execute the suite.</h2>
+        </div>
+        <pre><code>git clone https://github.com/Amos0323/ShopSure.git
+cd ShopSure
+npm ci
+npx playwright install chromium
+npm run typecheck
+npm test
+npm run report</code></pre>
+      </section>
+    </main>
+
+    <footer>
+      <span>Built by Sello Mabua</span>
+      <a href="https://sello-mabua-portfolio.vercel.app/">Portfolio</a>
+    </footer>
+  </body>
+</html>
