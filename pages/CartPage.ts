@@ -11,7 +11,7 @@ export class CartPage {
 
   async expectProductInCart(productName: string) {
     await expect(this.page).toHaveURL(/.*cart\.html/);
-    await expect(this.productNames).toContainText(productName);
+    await expect(this.productNames.filter({ hasText: productName })).toHaveCount(1);
   }
 
   async expectProductsInCart(productNames: string[]) {
